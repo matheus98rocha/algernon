@@ -1,11 +1,11 @@
-import { Text } from "react-native";
+import { Text, TouchableWithoutFeedback, View } from "react-native";
 import * as S from "./book.styles";
 import { IBook } from "./book.interface";
 import { AntDesign } from "@expo/vector-icons";
 
-export const Book = ({ title, isReaded }: IBook) => {
+export const Book = ({ title, isReaded, onPress }: IBook) => {
   return (
-    <>
+    <TouchableWithoutFeedback onPress={onPress}>
       {isReaded ? (
         <S.BookReaded>
           <AntDesign name="book" size={24} color="black" />
@@ -21,6 +21,6 @@ export const Book = ({ title, isReaded }: IBook) => {
           </S.WrapperBookText>
         </S.WrapperBook>
       )}
-    </>
+    </TouchableWithoutFeedback>
   );
 };
